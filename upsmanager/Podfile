@@ -1,0 +1,20 @@
+platform :ios, '9.0'
+
+target "upsmanager" do
+
+pod 'AFNetworking'
+pod 'Masonry'
+pod 'MJExtension'
+pod 'MJRefresh'
+pod 'SDWebImage'
+pod 'SVProgressHUD'
+pod 'FMDB'
+pod 'JPush'
+pod 'AMap3DMap'
+pod 'AMapSearch'
+pod 'AMapLocation'
+pod 'MOBFoundation'
+
+
+
+end
