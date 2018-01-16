@@ -7,10 +7,11 @@
 //
 
 #import "UPSMainVC.h"
-#import <AMapFoundationKit/AMapFoundationKit.h>
-#import <MAMapKit/MAMapKit.h>
-#import <AMapSearchKit/AMapSearchKit.h>
-@interface UPSMainVC ()
+#import "UPSHeader.h"
+#import "UPSCustormAnnotationView.h"
+#import "UPSCustomCalloutView.h"
+#import "UPSLoginCompanyModel.h"
+@interface UPSMainVC ()<MAMapViewDelegate>
 @property (nonatomic,strong)MAMapView *mapView;
 
 @end
@@ -19,20 +20,76 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setNav];
     [self addMapView];
+    
+}
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+   
+    NSMutableArray *tempArr = [NSMutableArray array];
+//    for (int i = 0; i < self.loginCompanyArr.count; i++) {
+//        UPSLoginCompanyModel *model = [UPSLoginCompanyModel mj_objectWithKeyValues:self.loginCompanyArr[i]];
+//        pointAnnotation.coordinate = CLLocationCoordinate2DMake(model.latitude, model.longitude);
+//        [tempArr addObject:model];
+//
+//    }
+    for (UPSLoginCompanyModel *model in self.loginCompanyArr) {
+         MAPointAnnotation *pointAnnotation = [[MAPointAnnotation alloc] init];
+         pointAnnotation.coordinate = CLLocationCoordinate2DMake(model.latitude, model.longitude);
+     
+        [tempArr addObject:pointAnnotation];
+    }
+    [_mapView addAnnotations:tempArr];
+    
+    
+    
+}
+- (void)setNav{
+    self.navigationItem.title = @"全国UPS状态";
+    self.navigationItem.hidesBackButton = YES;
+
+   
 }
 - (void)addMapView{
-    
-    ///地图需要v4.5.0及以上版本才必须要打开此选项（v4.5.0以下版本，需要手动配置info.plist）
-    [AMapServices sharedServices].enableHTTPS = YES;
-    
     ///初始化地图
-    MAMapView *_mapView = [[MAMapView alloc] initWithFrame:self.view.bounds];
-    _mapView.showsUserLocation = YES;
-    _mapView.userTrackingMode = MAUserTrackingModeFollow;
+    MAMapView *mapView = [[MAMapView alloc] initWithFrame:self.view.bounds];
+//    _mapView.showsUserLocation = YES;
+//    _mapView.userTrackingMode = MAUserTrackingModeFollow;
     ///把地图添加至view
-    [self.view addSubview:_mapView];
+    self.mapView = mapView;
+    self.mapView.delegate = self;
+    [self.view addSubview:mapView];
 }
+
+- (void)setupBtn{
+   
+}
+
+
+#pragma mark- MAMapViewDelegate
+- (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation
+{
+    if ([annotation isKindOfClass:[MAPointAnnotation class]])
+    {
+        static NSString *reuseIndetifier = @"annotationReuseIndetifier";
+        UPSCustormAnnotationView *annotationView = (UPSCustormAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:reuseIndetifier];
+        if (annotationView == nil)
+        {
+            annotationView = [[UPSCustormAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIndetifier];
+        }
+        annotationView.image = [UIImage imageNamed:@"location"];
+        
+        // 设置为NO，用以调用自定义的calloutView
+        annotationView.canShowCallout = NO;
+        
+        // 设置中心点偏移，使得标注底部中间点成为经纬度对应点
+        annotationView.centerOffset = CGPointMake(0, -18);
+        return annotationView;
+    }
+    return nil;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

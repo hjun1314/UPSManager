@@ -17,6 +17,13 @@
 		F0213E0B200716A000B5F64E /* UIImage+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = F0213E07200716A000B5F64E /* UIImage+Image.m */; };
 		F0213E0C200716A000B5F64E /* UIView+ZUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = F0213E08200716A000B5F64E /* UIView+ZUtility.m */; };
 		F0213E10200716B200B5F64E /* NSObject+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = F0213E0E200716B100B5F64E /* NSObject+Log.m */; };
+		F0A6A04E200D9A1F0072F50F /* UPSTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A6A04D200D9A1F0072F50F /* UPSTool.m */; };
+		F0A6A051200D9A270072F50F /* UPSHttpNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A6A04F200D9A270072F50F /* UPSHttpNetWorkTool.m */; };
+		F0A6A058200DCBFE0072F50F /* UPSLoginCompanyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A6A057200DCBFE0072F50F /* UPSLoginCompanyModel.m */; };
+		F0A6A05B200DD4FE0072F50F /* UPSCustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A6A05A200DD4FE0072F50F /* UPSCustomCalloutView.m */; };
+		F0A6A05E200DDE5F0072F50F /* UPSCustormAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A6A05D200DDE5F0072F50F /* UPSCustormAnnotationView.m */; };
+		F0F045992007364E00D36029 /* UPSLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F045972007364E00D36029 /* UPSLoginView.m */; };
+		F0F0459D20073DBA00D36029 /* UPSLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F0459C20073DBA00D36029 /* UPSLoginVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +47,22 @@
 		F0213E0A200716A000B5F64E /* UIImage+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Image.h"; sourceTree = "<group>"; };
 		F0213E0E200716B100B5F64E /* NSObject+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Log.m"; sourceTree = "<group>"; };
 		F0213E0F200716B100B5F64E /* NSObject+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Log.h"; sourceTree = "<group>"; };
+		F0A6A04C200D9A1F0072F50F /* UPSTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPSTool.h; sourceTree = "<group>"; };
+		F0A6A04D200D9A1F0072F50F /* UPSTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPSTool.m; sourceTree = "<group>"; };
+		F0A6A04F200D9A270072F50F /* UPSHttpNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPSHttpNetWorkTool.m; sourceTree = "<group>"; };
+		F0A6A050200D9A270072F50F /* UPSHttpNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPSHttpNetWorkTool.h; sourceTree = "<group>"; };
+		F0A6A052200DA3F00072F50F /* upsmanager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = upsmanager.entitlements; sourceTree = "<group>"; };
+		F0A6A056200DCBFE0072F50F /* UPSLoginCompanyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPSLoginCompanyModel.h; sourceTree = "<group>"; };
+		F0A6A057200DCBFE0072F50F /* UPSLoginCompanyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPSLoginCompanyModel.m; sourceTree = "<group>"; };
+		F0A6A059200DD4FE0072F50F /* UPSCustomCalloutView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPSCustomCalloutView.h; sourceTree = "<group>"; };
+		F0A6A05A200DD4FE0072F50F /* UPSCustomCalloutView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPSCustomCalloutView.m; sourceTree = "<group>"; };
+		F0A6A05C200DDE5F0072F50F /* UPSCustormAnnotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPSCustormAnnotationView.h; sourceTree = "<group>"; };
+		F0A6A05D200DDE5F0072F50F /* UPSCustormAnnotationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPSCustormAnnotationView.m; sourceTree = "<group>"; };
+		F0F045972007364E00D36029 /* UPSLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPSLoginView.m; sourceTree = "<group>"; };
+		F0F045982007364E00D36029 /* UPSLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPSLoginView.h; sourceTree = "<group>"; };
+		F0F0459A200737BA00D36029 /* UPSHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPSHeader.h; sourceTree = "<group>"; };
+		F0F0459B20073DBA00D36029 /* UPSLoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPSLoginVC.h; sourceTree = "<group>"; };
+		F0F0459C20073DBA00D36029 /* UPSLoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPSLoginVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,8 +115,10 @@
 		F0213DE2200713A300B5F64E /* upsmanager */ = {
 			isa = PBXGroup;
 			children = (
+				F0A6A052200DA3F00072F50F /* upsmanager.entitlements */,
 				F0213DE3200713A300B5F64E /* AppDelegate.h */,
 				F0213DE4200713A300B5F64E /* AppDelegate.m */,
+				F0F0459A200737BA00D36029 /* UPSHeader.h */,
 				F0213DF1200713A300B5F64E /* Info.plist */,
 				F0213DF92007148900B5F64E /* Classes */,
 			);
@@ -103,8 +128,8 @@
 		F0213DF92007148900B5F64E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				F0213E06200716A000B5F64E /* Category */,
 				F0213DFB2007148900B5F64E /* Main */,
+				F0213E06200716A000B5F64E /* Category */,
 				F0213DFF2007148900B5F64E /* Tool */,
 				F0213DFA2007148900B5F64E /* Other */,
 			);
@@ -136,6 +161,8 @@
 			children = (
 				F0213E022007169000B5F64E /* UPSMainVC.h */,
 				F0213E002007168F00B5F64E /* UPSMainVC.m */,
+				F0F0459B20073DBA00D36029 /* UPSLoginVC.h */,
+				F0F0459C20073DBA00D36029 /* UPSLoginVC.m */,
 				F0213E012007168F00B5F64E /* UPSNacVC.h */,
 				F0213E032007169000B5F64E /* UPSNacVC.m */,
 			);
@@ -145,6 +172,8 @@
 		F0213DFD2007148900B5F64E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F0A6A056200DCBFE0072F50F /* UPSLoginCompanyModel.h */,
+				F0A6A057200DCBFE0072F50F /* UPSLoginCompanyModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -152,6 +181,12 @@
 		F0213DFE2007148900B5F64E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F0F045982007364E00D36029 /* UPSLoginView.h */,
+				F0F045972007364E00D36029 /* UPSLoginView.m */,
+				F0A6A059200DD4FE0072F50F /* UPSCustomCalloutView.h */,
+				F0A6A05A200DD4FE0072F50F /* UPSCustomCalloutView.m */,
+				F0A6A05C200DDE5F0072F50F /* UPSCustormAnnotationView.h */,
+				F0A6A05D200DDE5F0072F50F /* UPSCustormAnnotationView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -159,6 +194,10 @@
 		F0213DFF2007148900B5F64E /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				F0A6A050200D9A270072F50F /* UPSHttpNetWorkTool.h */,
+				F0A6A04F200D9A270072F50F /* UPSHttpNetWorkTool.m */,
+				F0A6A04C200D9A1F0072F50F /* UPSTool.h */,
+				F0A6A04D200D9A1F0072F50F /* UPSTool.m */,
 				F0213E0D200716B100B5F64E /* Log */,
 			);
 			path = Tool;
@@ -213,12 +252,21 @@
 		F0213DD8200713A300B5F64E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = UPS;
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = hjun;
 				TargetAttributes = {
 					F0213DDF200713A300B5F64E = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -313,12 +361,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0A6A04E200D9A1F0072F50F /* UPSTool.m in Sources */,
 				F0213E0C200716A000B5F64E /* UIView+ZUtility.m in Sources */,
+				F0A6A05E200DDE5F0072F50F /* UPSCustormAnnotationView.m in Sources */,
+				F0A6A058200DCBFE0072F50F /* UPSLoginCompanyModel.m in Sources */,
 				F0213E052007169000B5F64E /* UPSNacVC.m in Sources */,
 				F0213E10200716B200B5F64E /* NSObject+Log.m in Sources */,
 				F0213E0B200716A000B5F64E /* UIImage+Image.m in Sources */,
 				F0213DF3200713A300B5F64E /* main.m in Sources */,
+				F0A6A051200D9A270072F50F /* UPSHttpNetWorkTool.m in Sources */,
+				F0A6A05B200DD4FE0072F50F /* UPSCustomCalloutView.m in Sources */,
+				F0F045992007364E00D36029 /* UPSLoginView.m in Sources */,
 				F0213E042007169000B5F64E /* UPSMainVC.m in Sources */,
+				F0F0459D20073DBA00D36029 /* UPSLoginVC.m in Sources */,
 				F0213DE5200713A300B5F64E /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,6 +501,7 @@
 			baseConfigurationReference = 414E95292C2300C9B680669E /* Pods-upsmanager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = upsmanager/upsmanager.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A2N8A4ABC3;
 				INFOPLIST_FILE = upsmanager/Info.plist;
@@ -462,6 +518,7 @@
 			baseConfigurationReference = 49994FD01DD3C8EFA02825B3 /* Pods-upsmanager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = upsmanager/upsmanager.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A2N8A4ABC3;
 				INFOPLIST_FILE = upsmanager/Info.plist;

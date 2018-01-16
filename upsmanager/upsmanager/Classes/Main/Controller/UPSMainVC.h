@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UPSMainVC : UIViewController
+@property (nonatomic,strong)NSMutableArray *loginCompanyArr;
 
 @end
