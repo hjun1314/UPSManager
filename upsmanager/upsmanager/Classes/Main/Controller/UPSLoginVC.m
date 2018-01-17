@@ -11,6 +11,7 @@
 #import "UPSHeader.h"
 #import "UPSMainVC.h"
 #import "UPSLoginCompanyModel.h"
+#import "UPSToken.h"
 @interface UPSLoginVC ()
 @property (nonatomic,strong)UPSLoginView *loginView;
 
@@ -33,7 +34,11 @@
      NSDictionary *params = @{@"username":self.loginView.userTextField.text,@"password":self.loginView.passwordTextField.text,@"registrationId":[UPSTool getGeTuiCid]};
     [[UPSHttpNetWorkTool sharedApi]POST:@"adminUserLogin" baseURL:API_BaseURL params:params success:^(NSURLSessionDataTask *task, id responseObject) {
         NSMutableArray *dataM = responseObject[@"data"][@"loginCompany"];
+        NSDictionary *tokenM = responseObject[@"data"];
         NSLog(@"登录成功%@",responseObject);
+        UPSToken *token = [UPSToken mj_objectWithKeyValues:tokenM];
+        [UPSTool saveToken:token.token];
+        
         NSMutableArray *tempArr = [NSMutableArray array];
         for (NSDictionary *dict in dataM) {
             UPSLoginCompanyModel *model = [UPSLoginCompanyModel mj_objectWithKeyValues:dict];

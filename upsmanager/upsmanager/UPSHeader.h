@@ -6,7 +6,7 @@
 //  Copyright © 2018年 hjun. All rights reserved.
 //
 
-#ifndef UPSHeader_h
+//#ifndef UPSHeader_h
 #define UPSHeader_h
 
 #define NUMBERS @"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
@@ -47,6 +47,29 @@ blue:((CGFloat)(rgbValue & 0xFF)) / 255.0 alpha:1.0]
 #import "JPUSHService.h"
 
 #define API_BaseURL @"http://192.168.1.147:12345/ups-manager/"
+
+#define Singleton_h(name)  +(instancetype)shared##name;
+#if __has_feature(objc_arc) // arc
+#define Singleton_m(name) \
++(instancetype)shared##name{ \
+return [[self alloc] init]; \
+}\
+\
+- (id)copyWithZone:(NSZone *)zone{\
+return self;\
+}\
+\
++ (instancetype)allocWithZone:(struct _NSZone *)zone {\
+static id instance;\
+static dispatch_once_t onceToken;\
+dispatch_once(&onceToken, ^{\
+instance = [super allocWithZone:zone];\
+});\
+return instance;\
+}
+
+
+
 
 
 #endif /* UPSHeader_h */

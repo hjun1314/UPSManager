@@ -9,5 +9,5 @@
 #import "UPSLoginCompanyModel.h"
 
 @implementation UPSLoginCompanyModel
-
+//Singleton_m(UPSLoginCompanyModel)
 @end

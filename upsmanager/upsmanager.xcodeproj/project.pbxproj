@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4FF8CE707C424DFB8EFDB793 /* libPods-upsmanager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48558F80D31C2E041DAA1D30 /* libPods-upsmanager.a */; };
+		F012EF24200F03FD002296A3 /* UPSCompanyInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F012EF23200F03FD002296A3 /* UPSCompanyInfoVC.m */; };
+		F012EF27200F07B2002296A3 /* UPSToken.m in Sources */ = {isa = PBXBuildFile; fileRef = F012EF26200F07B2002296A3 /* UPSToken.m */; };
+		F012EF2A200F1FF0002296A3 /* UPSCompanyDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F012EF29200F1FF0002296A3 /* UPSCompanyDetailModel.m */; };
 		F0213DE5200713A300B5F64E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F0213DE4200713A300B5F64E /* AppDelegate.m */; };
 		F0213DED200713A300B5F64E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0213DEC200713A300B5F64E /* Assets.xcassets */; };
 		F0213DF0200713A300B5F64E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0213DEE200713A300B5F64E /* LaunchScreen.storyboard */; };
@@ -30,6 +33,12 @@
 		414E95292C2300C9B680669E /* Pods-upsmanager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-upsmanager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-upsmanager/Pods-upsmanager.debug.xcconfig"; sourceTree = "<group>"; };
 		48558F80D31C2E041DAA1D30 /* libPods-upsmanager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-upsmanager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49994FD01DD3C8EFA02825B3 /* Pods-upsmanager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-upsmanager.release.xcconfig"; path = "Pods/Target Support Files/Pods-upsmanager/Pods-upsmanager.release.xcconfig"; sourceTree = "<group>"; };
+		F012EF22200F03FD002296A3 /* UPSCompanyInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPSCompanyInfoVC.h; sourceTree = "<group>"; };
+		F012EF23200F03FD002296A3 /* UPSCompanyInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPSCompanyInfoVC.m; sourceTree = "<group>"; };
+		F012EF25200F07B2002296A3 /* UPSToken.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPSToken.h; sourceTree = "<group>"; };
+		F012EF26200F07B2002296A3 /* UPSToken.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPSToken.m; sourceTree = "<group>"; };
+		F012EF28200F1FF0002296A3 /* UPSCompanyDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPSCompanyDetailModel.h; sourceTree = "<group>"; };
+		F012EF29200F1FF0002296A3 /* UPSCompanyDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPSCompanyDetailModel.m; sourceTree = "<group>"; };
 		F0213DE0200713A300B5F64E /* upsmanager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = upsmanager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0213DE3200713A300B5F64E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F0213DE4200713A300B5F64E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -94,6 +103,72 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F012EF17200F0354002296A3 /* UPSInfo */ = {
+			isa = PBXGroup;
+			children = (
+				F012EF18200F0354002296A3 /* Controller */,
+				F012EF19200F0354002296A3 /* Model */,
+				F012EF1A200F0354002296A3 /* View */,
+			);
+			path = UPSInfo;
+			sourceTree = "<group>";
+		};
+		F012EF18200F0354002296A3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F012EF22200F03FD002296A3 /* UPSCompanyInfoVC.h */,
+				F012EF23200F03FD002296A3 /* UPSCompanyInfoVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F012EF19200F0354002296A3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F012EF28200F1FF0002296A3 /* UPSCompanyDetailModel.h */,
+				F012EF29200F1FF0002296A3 /* UPSCompanyDetailModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F012EF1A200F0354002296A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F012EF1E200F03B5002296A3 /* Personal */ = {
+			isa = PBXGroup;
+			children = (
+				F012EF1F200F03B5002296A3 /* Controller */,
+				F012EF20200F03B5002296A3 /* Model */,
+				F012EF21200F03B5002296A3 /* View */,
+			);
+			path = Personal;
+			sourceTree = "<group>";
+		};
+		F012EF1F200F03B5002296A3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F012EF20200F03B5002296A3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F012EF21200F03B5002296A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F0213DD7200713A300B5F64E = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +203,8 @@
 		F0213DF92007148900B5F64E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F012EF1E200F03B5002296A3 /* Personal */,
+				F012EF17200F0354002296A3 /* UPSInfo */,
 				F0213DFB2007148900B5F64E /* Main */,
 				F0213E06200716A000B5F64E /* Category */,
 				F0213DFF2007148900B5F64E /* Tool */,
@@ -172,6 +249,8 @@
 		F0213DFD2007148900B5F64E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F012EF25200F07B2002296A3 /* UPSToken.h */,
+				F012EF26200F07B2002296A3 /* UPSToken.m */,
 				F0A6A056200DCBFE0072F50F /* UPSLoginCompanyModel.h */,
 				F0A6A057200DCBFE0072F50F /* UPSLoginCompanyModel.m */,
 			);
@@ -367,13 +446,16 @@
 				F0A6A058200DCBFE0072F50F /* UPSLoginCompanyModel.m in Sources */,
 				F0213E052007169000B5F64E /* UPSNacVC.m in Sources */,
 				F0213E10200716B200B5F64E /* NSObject+Log.m in Sources */,
+				F012EF2A200F1FF0002296A3 /* UPSCompanyDetailModel.m in Sources */,
 				F0213E0B200716A000B5F64E /* UIImage+Image.m in Sources */,
 				F0213DF3200713A300B5F64E /* main.m in Sources */,
 				F0A6A051200D9A270072F50F /* UPSHttpNetWorkTool.m in Sources */,
 				F0A6A05B200DD4FE0072F50F /* UPSCustomCalloutView.m in Sources */,
 				F0F045992007364E00D36029 /* UPSLoginView.m in Sources */,
+				F012EF24200F03FD002296A3 /* UPSCompanyInfoVC.m in Sources */,
 				F0213E042007169000B5F64E /* UPSMainVC.m in Sources */,
 				F0F0459D20073DBA00D36029 /* UPSLoginVC.m in Sources */,
+				F012EF27200F07B2002296A3 /* UPSToken.m in Sources */,
 				F0213DE5200713A300B5F64E /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,7 +587,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A2N8A4ABC3;
 				INFOPLIST_FILE = upsmanager/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cl-ele.upsmanager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -522,7 +604,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A2N8A4ABC3;
 				INFOPLIST_FILE = upsmanager/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cl-ele.upsmanager";
 				PRODUCT_NAME = "$(TARGET_NAME)";

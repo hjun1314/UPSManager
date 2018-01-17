@@ -12,5 +12,7 @@
 
 @property (nonatomic,strong)UPSCustomCalloutView *customView;
 
+- (void)sendDataArray:(NSMutableArray *)dataArray;
+@property (nonatomic,strong)NSMutableArray *arr;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "UPSCustomCalloutView.h"
 #import "UPSHeader.h"
+#import "UPSLoginCompanyModel.h"
 #define kArrorHeight        20
 
 @implementation UPSCustomCalloutView
@@ -18,32 +19,60 @@
         self.backgroundColor = [UIColor whiteColor];
         self.layer.cornerRadius = 10;
         self.clipsToBounds = YES;
+        self.alpha = 0.8;
     }
     return self;
 }
 
 - (void)initViews{
     self.nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(5, 5, self.width - 10, 20)];
-    self.nameLabel.backgroundColor = [UIColor redColor];
+//    self.nameLabel.backgroundColor = [UIColor redColor];
     [self addSubview:self.nameLabel];
+    self.nameLabel.textColor = [UIColor blackColor];
+    self.nameLabel.textAlignment = NSTextAlignmentCenter;
     
-    self.normalLabel = [[UILabel alloc]initWithFrame:CGRectMake(5, 30, (self.width - 10) / 3, 20)];
-    self.normalLabel.text = @"正常";
+    UILabel *normal = [[UILabel alloc]initWithFrame:CGRectMake(5, 30, (self.width - 10) / 3, 20)];
+    normal.text = @"正常";
+    normal.textColor = [UIColor greenColor];
+    [self addSubview:normal];
+    
+    self.normalLabel = [[UILabel alloc]initWithFrame:CGRectMake(5, 55, (self.width - 10) / 3, 20)];
     [self addSubview:self.normalLabel];
+    self.normalLabel.textAlignment = NSTextAlignmentCenter;
     
-    self.unknownLabel = [[UILabel alloc]initWithFrame:CGRectMake(5 +(self.width - 10) / 3 , 30, (self.width - 10) / 3, 20)];
-    self.unknownLabel.text = @"未知";
+    UILabel *unknown = [[UILabel alloc]initWithFrame:CGRectMake(5 +(self.width - 10) / 3 , 30, (self.width - 10) / 3, 20)];
+    unknown.text = @"未知";
+    unknown.textColor = [UIColor grayColor];
+    [self addSubview:unknown];
+    
+    self.unknownLabel = [[UILabel alloc]initWithFrame:CGRectMake(5 +(self.width - 10) / 3 , 55, (self.width - 10) / 3, 20)];
     [self addSubview:self.unknownLabel];
+    self.unknownLabel.textAlignment = NSTextAlignmentCenter;
     
-    self.faultLabel = [[UILabel alloc]initWithFrame:CGRectMake(5 +(self.width - 10) / 3 * 2, 30, (self.width - 10) / 3, 20)];
-    self.faultLabel.text = @"异常";
+    UILabel *fault = [[UILabel alloc]initWithFrame:CGRectMake(5 +(self.width - 10) / 3 * 2, 30, (self.width - 10) / 3, 20)];
+    fault.text = @"异常";
+    fault.textColor = [UIColor redColor];
+    [self addSubview:fault];
+    
+    self.faultLabel = [[UILabel alloc]initWithFrame:CGRectMake(5 +(self.width - 10) / 3 * 2, 55, (self.width - 10) / 3, 20)];
     [self addSubview:self.faultLabel];
+    self.faultLabel.textAlignment = NSTextAlignmentCenter;
     
     self.sureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.sureBtn.frame = CGRectMake(5, 80, self.width - 10, 20);
-    [self.sureBtn setBackgroundColor:[UIColor orangeColor]];
+    self.sureBtn.frame = CGRectMake(5, 80, self.width - 10, 30);
+//    [self.sureBtn setBackgroundColor:[UIColor orangeColor]];
+    [self.sureBtn setTitle:@"查看详情" forState:UIControlStateNormal];
+    [self.sureBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.sureBtn setBackgroundColor:[UIColor blueColor]];
     [self addSubview:self.sureBtn];
+    [self.sureBtn addTarget:self action:@selector(clickSureBtn) forControlEvents:UIControlEventTouchUpInside];
 }
+- (void)clickSureBtn{
+    NSLog(@"点了了啊");
+}
+
+
+
 
 ////绘制弹出气泡的背景
 //-(void)drawRect:(CGRect)rect{

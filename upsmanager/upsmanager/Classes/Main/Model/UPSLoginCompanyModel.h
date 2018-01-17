@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "UPSHeader.h"
 @interface UPSLoginCompanyModel : NSObject
-
+//Singleton_h(UPSLoginCompanyModel)
 @property (nonatomic,assign)long id;
 
 @property (nonatomic,copy)NSString *name;
