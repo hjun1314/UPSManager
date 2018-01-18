@@ -10,6 +10,7 @@
 #define Access_token @"token"
 #define Access_ID @"ID"
 #define Access_CID @"CID"
+#define Access_userName @"userName"
 @implementation UPSTool
 // 存储token
 +(void)saveToken:(NSString *)token
@@ -39,7 +40,7 @@
     return [[NSUserDefaults standardUserDefaults]integerForKey:Access_ID];
 }
 
-///存个推CID
+///存CID
 + (void)saveGeTuiCid:(NSString *)cid{
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:cid forKey:Access_CID];
@@ -51,6 +52,18 @@
     return [[NSUserDefaults standardUserDefaults]objectForKey:Access_CID];
     
 }
+
++ (void)saveUserName:(NSString *)username{
+     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:username forKey:Access_userName];
+    [userDefaults synchronize];
+}
++ (NSString *)getUserName{
+    return [[NSUserDefaults standardUserDefaults]objectForKey:Access_userName];
+    
+}
+
+
 + (NSString *)strwithInteger:(long)interger
 {
    NSDate* date = [[NSDate alloc] initWithTimeIntervalSince1970:interger];

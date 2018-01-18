@@ -12,6 +12,7 @@
 #import "UPSCustomCalloutView.h"
 #import "UPSLoginCompanyModel.h"
 #import "UPSCompanyDetailModel.h"
+#import "UPSPersonalVC.h"
 @interface UPSMainVC ()<MAMapViewDelegate>
 @property (nonatomic,strong)MAMapView *mapView;
 
@@ -54,23 +55,23 @@
     ///把地图添加至view
     self.mapView = mapView;
     self.mapView.delegate = self;
-    self.mapView.zoomLevel = 5;
+    self.mapView.zoomLevel = 4;
     [self.view addSubview:mapView];
 }
 
 - (void)setupBtn{
-    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(10, kScreenH - 30, 30, 20)];
-    [btn setBackgroundColor:[UIColor redColor]];
-    [self.view addSubview:btn];
-    [btn addTarget:self action:@selector(clickBtn) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *equipmentBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, kScreenH - SafeAreaTabbarHeight, 32, 32)];
+    [self.view addSubview:equipmentBtn];
+    [equipmentBtn addTarget:self action:@selector(clickEquipmentBtn) forControlEvents:UIControlEventTouchUpInside];
+    [equipmentBtn setBackgroundImage:[UIImage imageNamed:@"ups"] forState:UIControlStateNormal];
     
-    UIButton *rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(100, kScreenH - 30, 44, 20)];
-    [rightBtn setBackgroundColor:[UIColor orangeColor]];
-    [self.view addSubview:rightBtn];
-    [rightBtn addTarget:self action:@selector(clcikRightBtn) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *personalBtn = [[UIButton alloc]initWithFrame:CGRectMake(kScreenW - 52, kScreenH - SafeAreaTabbarHeight, 32, 32)];
+    [self.view addSubview:personalBtn];
+    [personalBtn addTarget:self action:@selector(clcikPersonalBtn) forControlEvents:UIControlEventTouchUpInside];
+    [personalBtn setBackgroundImage:[UIImage imageNamed:@"owner_un"] forState:UIControlStateNormal];
     
 }
-- (void)clickBtn{
+- (void)clickEquipmentBtn{
     ///http://192.168.1.147:12345/ups-manager/companyDetails
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
 //    UPSLoginCompanyModel *model = [UPSLoginCompanyModel sharedUPSLoginCompanyModel];
@@ -97,18 +98,10 @@
     
     NSLog(@"dasdas");
 }
-- (void)clcikRightBtn{
-    ///http://192.168.1.147:12345/ups-manager/upsBaseParameter
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"token"] = [UPSTool getToken];
-    params[@"username"] = @"武汉大学";
-    params[@"upsId"] = @(1);
-    [[UPSHttpNetWorkTool sharedApi]POST:@"upsBaseParameter" baseURL:API_BaseURL params:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"显示UPS基础信息%@",responseObject);
-    } fail:^(NSURLSessionDataTask *task, NSError *error) {
-
-    }];
-    NSLog(@"dassssss");
+- (void)clcikPersonalBtn{
+    UPSPersonalVC *person = [[UPSPersonalVC alloc]init];
+    [self.navigationController pushViewController:person animated:YES];
+   
 }
 #pragma mark- MAMapViewDelegate
 - (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation

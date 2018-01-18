@@ -11,6 +11,7 @@
 		F012EF24200F03FD002296A3 /* UPSCompanyInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F012EF23200F03FD002296A3 /* UPSCompanyInfoVC.m */; };
 		F012EF27200F07B2002296A3 /* UPSToken.m in Sources */ = {isa = PBXBuildFile; fileRef = F012EF26200F07B2002296A3 /* UPSToken.m */; };
 		F012EF2A200F1FF0002296A3 /* UPSCompanyDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F012EF29200F1FF0002296A3 /* UPSCompanyDetailModel.m */; };
+		F012EF2D200F3CFF002296A3 /* UPSPersonalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F012EF2C200F3CFF002296A3 /* UPSPersonalVC.m */; };
 		F0213DE5200713A300B5F64E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F0213DE4200713A300B5F64E /* AppDelegate.m */; };
 		F0213DED200713A300B5F64E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0213DEC200713A300B5F64E /* Assets.xcassets */; };
 		F0213DF0200713A300B5F64E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0213DEE200713A300B5F64E /* LaunchScreen.storyboard */; };
@@ -39,6 +40,8 @@
 		F012EF26200F07B2002296A3 /* UPSToken.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPSToken.m; sourceTree = "<group>"; };
 		F012EF28200F1FF0002296A3 /* UPSCompanyDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPSCompanyDetailModel.h; sourceTree = "<group>"; };
 		F012EF29200F1FF0002296A3 /* UPSCompanyDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPSCompanyDetailModel.m; sourceTree = "<group>"; };
+		F012EF2B200F3CFF002296A3 /* UPSPersonalVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPSPersonalVC.h; sourceTree = "<group>"; };
+		F012EF2C200F3CFF002296A3 /* UPSPersonalVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPSPersonalVC.m; sourceTree = "<group>"; };
 		F0213DE0200713A300B5F64E /* upsmanager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = upsmanager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0213DE3200713A300B5F64E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F0213DE4200713A300B5F64E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -151,6 +154,8 @@
 		F012EF1F200F03B5002296A3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F012EF2B200F3CFF002296A3 /* UPSPersonalVC.h */,
+				F012EF2C200F3CFF002296A3 /* UPSPersonalVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -453,6 +458,7 @@
 				F0A6A05B200DD4FE0072F50F /* UPSCustomCalloutView.m in Sources */,
 				F0F045992007364E00D36029 /* UPSLoginView.m in Sources */,
 				F012EF24200F03FD002296A3 /* UPSCompanyInfoVC.m in Sources */,
+				F012EF2D200F3CFF002296A3 /* UPSPersonalVC.m in Sources */,
 				F0213E042007169000B5F64E /* UPSMainVC.m in Sources */,
 				F0F0459D20073DBA00D36029 /* UPSLoginVC.m in Sources */,
 				F012EF27200F07B2002296A3 /* UPSToken.m in Sources */,

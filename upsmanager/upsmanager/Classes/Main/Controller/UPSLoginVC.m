@@ -31,6 +31,8 @@
 }
 - (void)clickLoginViewSureBtn{
     ///http://192.168.1.147:12345/ups-manager/adminUserLogin
+    [SVProgressHUD showWithStatus:@"正在登陆"];
+    [SVProgressHUD setBackgroundColor:UICOLOR_RGB(0, 0, 0, 0.3)];
      NSDictionary *params = @{@"username":self.loginView.userTextField.text,@"password":self.loginView.passwordTextField.text,@"registrationId":[UPSTool getGeTuiCid]};
     [[UPSHttpNetWorkTool sharedApi]POST:@"adminUserLogin" baseURL:API_BaseURL params:params success:^(NSURLSessionDataTask *task, id responseObject) {
         NSMutableArray *dataM = responseObject[@"data"][@"loginCompany"];
@@ -38,7 +40,8 @@
         NSLog(@"登录成功%@",responseObject);
         UPSToken *token = [UPSToken mj_objectWithKeyValues:tokenM];
         [UPSTool saveToken:token.token];
-        
+        [UPSTool saveUserName:self.loginView.userTextField.text];
+
         NSMutableArray *tempArr = [NSMutableArray array];
         for (NSDictionary *dict in dataM) {
             UPSLoginCompanyModel *model = [UPSLoginCompanyModel mj_objectWithKeyValues:dict];
@@ -47,7 +50,10 @@
         UPSMainVC *main = [[UPSMainVC alloc]init];
         main.loginCompanyArr = tempArr;
         [self.navigationController pushViewController:main animated:YES];
+        [SVProgressHUD showSuccessWithStatus:@"登录成功"];
+
     } fail:^(NSURLSessionDataTask *task, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"登录失败"];
 
     }];
    

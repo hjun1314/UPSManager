@@ -29,4 +29,7 @@
 
 + (NSString *)stringWithNsdate:(NSString *)str;
 
++ (void)saveUserName:(NSString *)username;
++ (NSString *)getUserName;
+
 @end
