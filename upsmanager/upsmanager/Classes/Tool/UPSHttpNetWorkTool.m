@@ -337,6 +337,7 @@
 //    manager.requestSerializer = [AFJSONRequestSerializer serializer];
 //    manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html",nil];
+//((AFJSONResponseSerializer *)manage.responseSerializer).removesKeysWithNullValues = YES;
     return manager;
 }
 

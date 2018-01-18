@@ -11,6 +11,7 @@
 #define Access_ID @"ID"
 #define Access_CID @"CID"
 #define Access_userName @"userName"
+#define Access_password @"password"
 @implementation UPSTool
 // 存储token
 +(void)saveToken:(NSString *)token
@@ -61,6 +62,21 @@
 + (NSString *)getUserName{
     return [[NSUserDefaults standardUserDefaults]objectForKey:Access_userName];
     
+}
+
+///存密码
++ (void)savePassWord:(NSString *)password{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:password forKey:Access_password];
+    [defaults synchronize];
+}
++ (NSString *)getPassword{
+    return [[NSUserDefaults standardUserDefaults]objectForKey:Access_password];
+}
++ (void)removePassword{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:Access_password];
+    [defaults synchronize];
 }
 
 

@@ -28,8 +28,14 @@
 + (NSString *)strwithInteger:(long)interger;
 
 + (NSString *)stringWithNsdate:(NSString *)str;
-
+///存账号
 + (void)saveUserName:(NSString *)username;
 + (NSString *)getUserName;
+///存密码
++ (void)savePassWord:(NSString *)password;
++ (NSString *)getPassword;
+///清除密码
++ (void)removePassword;
+
 
 @end

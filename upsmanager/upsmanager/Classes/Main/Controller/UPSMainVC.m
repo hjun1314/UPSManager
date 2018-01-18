@@ -76,7 +76,7 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
 //    UPSLoginCompanyModel *model = [UPSLoginCompanyModel sharedUPSLoginCompanyModel];
     params[@"token"] = [UPSTool getToken];
-    params[@"username"] = @"test";
+    params[@"username"] = [UPSTool getUserName];
     params[@"companyId"] = @(1);
 
     for (UPSLoginCompanyModel *model in self.loginCompanyArr) {
@@ -90,17 +90,17 @@
             UPSCompanyDetailModel *model = [UPSCompanyDetailModel mj_objectWithKeyValues:dict];
             [tempArr addObject:model];
         }
-      
     } fail:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];
     
     
-    NSLog(@"dasdas");
 }
 - (void)clcikPersonalBtn{
     UPSPersonalVC *person = [[UPSPersonalVC alloc]init];
     [self.navigationController pushViewController:person animated:YES];
+    ///http://192.168.1.147:12345/ups-manager/companyDetails
+    
    
 }
 #pragma mark- MAMapViewDelegate

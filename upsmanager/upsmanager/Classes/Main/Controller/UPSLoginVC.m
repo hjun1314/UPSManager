@@ -41,7 +41,7 @@
         UPSToken *token = [UPSToken mj_objectWithKeyValues:tokenM];
         [UPSTool saveToken:token.token];
         [UPSTool saveUserName:self.loginView.userTextField.text];
-
+        [UPSTool savePassWord:self.loginView.passwordTextField.text];
         NSMutableArray *tempArr = [NSMutableArray array];
         for (NSDictionary *dict in dataM) {
             UPSLoginCompanyModel *model = [UPSLoginCompanyModel mj_objectWithKeyValues:dict];

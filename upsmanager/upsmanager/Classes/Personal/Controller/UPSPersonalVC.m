@@ -9,6 +9,8 @@
 #import "UPSPersonalVC.h"
 #import "UPSHeader.h"
 #import "UPSLoginVC.h"
+#import "UPSChangePassword.h"
+#import "UPSChangePasswordVC.h"
 @interface UPSPersonalVC ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 //@property (nonatomic,strong)UITextField *userName;
 
@@ -21,12 +23,19 @@
     [self setup];
 }
 - (void)setup{
-    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, SafeAreaTopHeight, kScreenW, kScreenH  - SafeAreaTopHeight) style:UITableViewStyleGrouped];
+    self.navigationItem.title = @"个人中心";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(clickBackItem)];
+    
+    UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds];
     [self.view addSubview:tableView];
     tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     tableView.dataSource = self;
     tableView.delegate = self;
     
+}
+- (void)clickBackItem{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 3;
@@ -54,32 +63,40 @@
     
     if (indexPath.row == 0 ) {
         
-        
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"修改密码" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-        [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-            textField.placeholder = @"修改密码";
-            textField.secureTextEntry = YES;
-        }];
-        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            ///http://192.168.1.147:12345/ups-manager/updateAccountPassword
-            NSMutableDictionary *params = [NSMutableDictionary dictionary];
-            params[@"token"] = [UPSTool getToken];
-            params[@"username"] = [UPSTool getUserName];
-            params[@"password"] = alert.textFields[0].text;
-//            if (self.userName.text.length < 5) {
-//                [SVProgressHUD showErrorWithStatus:@"密码长度不能低于5"];
-//                return ;
-//            }
+       [UPSTool removePassword];
+
+//        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"修改密码" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+//        [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+//            textField.placeholder = @"修改密码";
+//            textField.secureTextEntry = YES;
+//        }];
+//        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+//        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//            ///http://192.168.1.147:12345/ups-manager/updateAccountPassword
+//            NSMutableDictionary *params = [NSMutableDictionary dictionary];
+//            params[@"token"] = [UPSTool getToken];
+//            params[@"username"] = [UPSTool getUserName];
+//            params[@"newPassword"] = alert.textFields[0].text;
+//            //            if (self.userName.text.length < 5) {
+//            //                [SVProgressHUD showErrorWithStatus:@"密码长度不能低于5"];
+//            //                return ;
+//            //            }
 //            [[UPSHttpNetWorkTool sharedApi]POST:@"updateAccountPassword" baseURL:API_BaseURL params:params success:^(NSURLSessionDataTask *task, id responseObject) {
 //                NSLog(@"密码更改成功%@",responseObject);
+//                [UPSTool savePassWord:alert.textFields[0].text];
+////                [UPSTool removePassword];
+//
+//                UPSLoginVC *login = [[UPSLoginVC alloc]init];
+//                [self.navigationController pushViewController:login animated:YES];
 //            } fail:^(NSURLSessionDataTask *task, NSError *error) {
-//                
+//
 //            }];
-//            
-        }]];
-        
-        [self.navigationController presentViewController:alert animated:YES completion:nil];
+//
+//        }]];
+//
+//        [self.navigationController presentViewController:alert animated:YES completion:nil];
+        UPSChangePasswordVC *changeVC = [[UPSChangePasswordVC alloc]init];
+        [self.navigationController pushViewController:changeVC animated:YES];
         
     }else if (indexPath.row == 1){
         
@@ -91,7 +108,7 @@
         }];
         
         UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        ///http://192.168.1.147:12345/ups-manager/logout
+            ///http://192.168.1.147:12345/ups-manager/logout
             NSMutableDictionary *params = [NSMutableDictionary dictionary];
             params[@"token"] = [UPSTool getToken];
             params[@"username"] = [UPSTool getUserName];
@@ -102,16 +119,16 @@
             } fail:^(NSURLSessionDataTask *task, NSError *error) {
                 
             }];
+            
+            
+        }];
         
+        [alert addAction:cancel];
+        [alert addAction:sure];
         
-    }];
-    
-    [alert addAction:cancel];
-    [alert addAction:sure];
-    
-    [self presentViewController:alert animated:YES completion:nil];
-    
-}
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    }
     
 }
 
