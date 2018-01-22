@@ -10,6 +10,7 @@
 #import "UPSChangePassword.h"
 #import "UPSHeader.h"
 #import "UPSLoginVC.h"
+#import "AppDelegate.h"
 @interface UPSChangePasswordVC ()
 ///  是否需要核对原密码
 @property (nonatomic,assign) BOOL needOrignalPW;
@@ -67,7 +68,7 @@
         [SVProgressHUD showErrorWithStatus:@"两次输入的密码不一致,请重新输入"];
         return;
     }else{
-        [SVProgressHUD showSuccessWithStatus:@"设置密码成功"];
+//        [SVProgressHUD showSuccessWithStatus:@"设置密码成功"];
         [self changePassWordLoad];
     }
     
@@ -85,10 +86,15 @@
                 [[UPSHttpNetWorkTool sharedApi]POST:@"updateAccountPassword" baseURL:API_BaseURL params:params success:^(NSURLSessionDataTask *task, id responseObject) {
                     NSLog(@"密码更改成功%@",responseObject);
                    
-    //                [UPSTool removePassword];
+                    [UPSTool savePassWord:self.changPasswordView.passwordSecondField.text];
     
-                    UPSLoginVC *login = [[UPSLoginVC alloc]init];
-                    [self.navigationController pushViewController:login animated:YES];
+//                    UPSLoginVC *login = [[UPSLoginVC alloc]init];
+//                    [self.navigationController pushViewController:login animated:YES];
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [(AppDelegate *)[UIApplication sharedApplication].delegate showWindowHome:@"logout"];
+                        [SVProgressHUD showSuccessWithStatus:@"密码更改成功"];
+                    });
+                   
                 } fail:^(NSURLSessionDataTask *task, NSError *error) {
     
                 }];

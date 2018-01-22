@@ -16,10 +16,9 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         [self initViews];
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = UICOLOR_RGB(110, 188, 236, 0.8);
         self.layer.cornerRadius = 10;
         self.clipsToBounds = YES;
-        self.alpha = 0.8;
     }
     return self;
 }
@@ -63,13 +62,11 @@
 //    [self.sureBtn setBackgroundColor:[UIColor orangeColor]];
     [self.sureBtn setTitle:@"查看详情" forState:UIControlStateNormal];
     [self.sureBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.sureBtn setBackgroundColor:[UIColor blueColor]];
+    [self.sureBtn setBackgroundColor:UICOLOR_RGB(33, 152, 216, 1)];
     [self addSubview:self.sureBtn];
-    [self.sureBtn addTarget:self action:@selector(clickSureBtn) forControlEvents:UIControlEventTouchUpInside];
+   
 }
-- (void)clickSureBtn{
-    NSLog(@"点了了啊");
-}
+
 
 
 

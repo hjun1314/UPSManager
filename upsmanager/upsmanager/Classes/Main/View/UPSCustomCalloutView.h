@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class UPSLoginCompanyModel;
+
 @interface UPSCustomCalloutView : UIView
 
 @property (nonatomic,strong)UILabel *nameLabel;
@@ -22,6 +23,6 @@
 
 @property (nonatomic,strong)UPSLoginCompanyModel *model;
 
-- (void)sendDataArray:(NSMutableArray *)dataArray;
+
 
 @end

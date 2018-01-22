@@ -13,8 +13,13 @@
 #import "UPSLoginCompanyModel.h"
 #import "UPSCompanyDetailModel.h"
 #import "UPSPersonalVC.h"
-@interface UPSMainVC ()<MAMapViewDelegate>
+@interface UPSMainVC ()<MAMapViewDelegate,UPSCustormAnnotationViewDelegate>
 @property (nonatomic,strong)MAMapView *mapView;
+
+@property (nonatomic,assign)long upsID;
+
+@property (nonatomic,strong)NSMutableArray *annotionArray;
+
 
 @end
 
@@ -34,10 +39,11 @@
     for (UPSLoginCompanyModel *model in self.loginCompanyArr) {
          MAPointAnnotation *pointAnnotation = [[MAPointAnnotation alloc] init];
          pointAnnotation.coordinate = CLLocationCoordinate2DMake(model.latitude, model.longitude);
+        self.upsID = model.id;
         [tempArr addObject:pointAnnotation];
     }
     [_mapView addAnnotations:tempArr];
-    
+    self.annotionArray = tempArr;
     
     
 }
@@ -79,9 +85,7 @@
     params[@"username"] = [UPSTool getUserName];
     params[@"companyId"] = @(1);
 
-    for (UPSLoginCompanyModel *model in self.loginCompanyArr) {
-
-    }
+    
     [[UPSHttpNetWorkTool sharedApi]POST:@"companyDetails" baseURL:API_BaseURL params:params success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"公司详细内容成功%@",responseObject);
         NSMutableArray *dataM = responseObject[@"data"];
@@ -91,7 +95,7 @@
             [tempArr addObject:model];
         }
     } fail:^(NSURLSessionDataTask *task, NSError *error) {
-        
+
     }];
     
     
@@ -100,7 +104,6 @@
     UPSPersonalVC *person = [[UPSPersonalVC alloc]init];
     [self.navigationController pushViewController:person animated:YES];
     ///http://192.168.1.147:12345/ups-manager/companyDetails
-    
    
 }
 #pragma mark- MAMapViewDelegate
@@ -116,7 +119,7 @@
         }
         annotationView.image = [UIImage imageNamed:@"location"];
         [annotationView sendDataArray:self.loginCompanyArr];
-        
+        annotationView.delegate = self;
         // 设置为NO，用以调用自定义的calloutView
         annotationView.canShowCallout = NO;
         
@@ -126,8 +129,18 @@
     }
     return nil;
 }
+#pragma mark- 查看详情点击按钮
+- (void)didClickCustormCalloutViewSureBtn{
+    NSLog(@"点击了查看详情按钮");
+}
 
-
+- (void)mapView:(MAMapView *)mapView didSelectAnnotationView:(MAAnnotationView *)view{
+    for (int i = 0; i < self.annotionArray.count; i++) {
+        if (view.annotation.coordinate.longitude == ((MAPointAnnotation *)self.annotionArray[i]).coordinate.longitude) {
+            NSLog(@".......%.4f",view.annotation.coordinate.longitude);
+        }
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

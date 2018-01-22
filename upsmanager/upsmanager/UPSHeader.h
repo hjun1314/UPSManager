@@ -30,6 +30,10 @@ blue:((CGFloat)(rgbValue & 0xFF)) / 255.0 alpha:1.0]
 #define SafeAreaTopHeight (kScreenH == 812.0 ? 88 : 64)
 #define SafeAreaTabbarHeight (kScreenH == 812.0 ? 83 : 49)
 
+
+#define VIEWSAFEAREAINSETS(view) ({UIEdgeInsets i; if(@available(iOS 11.0, *)) {i = view.safeAreaInsets;} else {i = UIEdgeInsetsZero;} i;})
+
+
 #import "UIView+ZUtility.h"
 #import "UPSHttpNetWorkTool.h"
 #import "UPSTool.h"

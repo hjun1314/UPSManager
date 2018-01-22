@@ -37,6 +37,7 @@
                 _customView.normalLabel.text = [NSString stringWithFormat:@"%d",model.normalCount];
                 _customView.unknownLabel.text = [NSString stringWithFormat:@"%d",model.unkownCount];
                 _customView.faultLabel.text = [NSString stringWithFormat:@"%d",model.communicationErrorCount];
+                [_customView.sureBtn addTarget:self action:@selector(clickSureBtn) forControlEvents:UIControlEventTouchUpInside];
             }
             
             
@@ -67,5 +68,9 @@
     }
     return view;
 }
-
+- (void)clickSureBtn{
+    if ([self.delegate respondsToSelector:@selector(didClickCustormCalloutViewSureBtn)]) {
+        [self.delegate didClickCustormCalloutViewSureBtn];
+    }
+}
 @end

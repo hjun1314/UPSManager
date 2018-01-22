@@ -23,6 +23,7 @@
     [super viewDidLoad];
     UPSLoginView *loginView = [[UPSLoginView alloc]initWithFrame:CGRectMake(0, SafeAreaTopHeight, kScreenW, kScreenH - SafeAreaTopHeight)];
     self.loginView = loginView;
+    self.loginView.backgroundColor = UICOLOR_RGB(110, 188, 230, 0.6);
     [self.view addSubview:loginView];
     self.view.backgroundColor = [UIColor whiteColor];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(clickLoginViewSureBtn) name:@"didClickSureBtn" object:nil];
@@ -30,10 +31,20 @@
     
 }
 - (void)clickLoginViewSureBtn{
+    if (self.loginView.userTextField.text.length == 0 || self.loginView.passwordTextField.text.length == 0) {
+//        self.loginView.loginButton.enabled = NO;
+    }else {
+        [self loadLoginData];
+    }
+
+    
+}
+
+- (void)loadLoginData{
     ///http://192.168.1.147:12345/ups-manager/adminUserLogin
     [SVProgressHUD showWithStatus:@"正在登陆"];
     [SVProgressHUD setBackgroundColor:UICOLOR_RGB(0, 0, 0, 0.3)];
-     NSDictionary *params = @{@"username":self.loginView.userTextField.text,@"password":self.loginView.passwordTextField.text,@"registrationId":[UPSTool getGeTuiCid]};
+    NSDictionary *params = @{@"username":self.loginView.userTextField.text,@"password":self.loginView.passwordTextField.text,@"registrationId":[UPSTool getGeTuiCid]};
     [[UPSHttpNetWorkTool sharedApi]POST:@"adminUserLogin" baseURL:API_BaseURL params:params success:^(NSURLSessionDataTask *task, id responseObject) {
         NSMutableArray *dataM = responseObject[@"data"][@"loginCompany"];
         NSDictionary *tokenM = responseObject[@"data"];
@@ -51,13 +62,11 @@
         main.loginCompanyArr = tempArr;
         [self.navigationController pushViewController:main animated:YES];
         [SVProgressHUD showSuccessWithStatus:@"登录成功"];
-
+        
     } fail:^(NSURLSessionDataTask *task, NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"登录失败"];
-
+        [SVProgressHUD showErrorWithStatus:@"账号或密码错误，请重新登录"];
+        
     }];
-   
-    
 }
 
 - (void)didReceiveMemoryWarning {

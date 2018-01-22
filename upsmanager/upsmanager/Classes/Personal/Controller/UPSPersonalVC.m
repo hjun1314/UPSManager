@@ -11,7 +11,9 @@
 #import "UPSLoginVC.h"
 #import "UPSChangePassword.h"
 #import "UPSChangePasswordVC.h"
-@interface UPSPersonalVC ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
+#import "AppDelegate.h"
+#import "UPSAboutUsVC.h"
+@interface UPSPersonalVC ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIApplicationDelegate>
 //@property (nonatomic,strong)UITextField *userName;
 
 @end
@@ -63,42 +65,17 @@
     
     if (indexPath.row == 0 ) {
         
-       [UPSTool removePassword];
+//       [UPSTool removePassword];
 
-//        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"修改密码" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-//        [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-//            textField.placeholder = @"修改密码";
-//            textField.secureTextEntry = YES;
-//        }];
-//        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-//        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//            ///http://192.168.1.147:12345/ups-manager/updateAccountPassword
-//            NSMutableDictionary *params = [NSMutableDictionary dictionary];
-//            params[@"token"] = [UPSTool getToken];
-//            params[@"username"] = [UPSTool getUserName];
-//            params[@"newPassword"] = alert.textFields[0].text;
-//            //            if (self.userName.text.length < 5) {
-//            //                [SVProgressHUD showErrorWithStatus:@"密码长度不能低于5"];
-//            //                return ;
-//            //            }
-//            [[UPSHttpNetWorkTool sharedApi]POST:@"updateAccountPassword" baseURL:API_BaseURL params:params success:^(NSURLSessionDataTask *task, id responseObject) {
-//                NSLog(@"密码更改成功%@",responseObject);
-//                [UPSTool savePassWord:alert.textFields[0].text];
-////                [UPSTool removePassword];
-//
-//                UPSLoginVC *login = [[UPSLoginVC alloc]init];
-//                [self.navigationController pushViewController:login animated:YES];
-//            } fail:^(NSURLSessionDataTask *task, NSError *error) {
-//
-//            }];
-//
-//        }]];
-//
-//        [self.navigationController presentViewController:alert animated:YES completion:nil];
+
         UPSChangePasswordVC *changeVC = [[UPSChangePasswordVC alloc]init];
         [self.navigationController pushViewController:changeVC animated:YES];
         
     }else if (indexPath.row == 1){
+        
+        UPSAboutUsVC *about = [[UPSAboutUsVC alloc]init];
+        [self.navigationController pushViewController:about animated:YES];
+        
         
     }else{
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"是否注销" message:@"确定注销?" preferredStyle:UIAlertControllerStyleAlert];
@@ -113,8 +90,8 @@
             params[@"token"] = [UPSTool getToken];
             params[@"username"] = [UPSTool getUserName];
             [[UPSHttpNetWorkTool sharedApi]POST:@"logout" baseURL:API_BaseURL params:params success:^(NSURLSessionDataTask *task, id responseObject) {
-                UPSLoginVC *login = [[UPSLoginVC alloc]init];
-                [self.navigationController pushViewController:login animated:YES];
+[(AppDelegate *)[UIApplication sharedApplication].delegate showWindowHome:@"logout"];
+                [SVProgressHUD showSuccessWithStatus:@"注销成功"];
                 NSLog(@"注销成功%@",responseObject);
             } fail:^(NSURLSessionDataTask *task, NSError *error) {
                 
@@ -131,7 +108,9 @@
     }
     
 }
-
+//- (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion{
+//    
+//}
 #pragma mark - textfieldDelegate
 
 //- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
