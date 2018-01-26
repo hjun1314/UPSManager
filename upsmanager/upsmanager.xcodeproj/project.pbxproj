@@ -23,6 +23,7 @@
 		F0213E10200716B200B5F64E /* NSObject+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = F0213E0E200716B100B5F64E /* NSObject+Log.m */; };
 		F070573F201572D200AF2064 /* UPSShowUPSDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F070573E201572D200AF2064 /* UPSShowUPSDetailModel.m */; };
 		F070574220158B6200AF2064 /* UPSAboutUsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F070574120158B6200AF2064 /* UPSAboutUsVC.m */; };
+		F070574520158FC000AF2064 /* UPSHistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F070574420158FC000AF2064 /* UPSHistoryModel.m */; };
 		F086B47D201046AD00EABD5D /* UPSRememberBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = F086B47C201046AD00EABD5D /* UPSRememberBtn.m */; };
 		F08948E520108500007ECE74 /* UPSChangePassword.m in Sources */ = {isa = PBXBuildFile; fileRef = F08948E420108500007ECE74 /* UPSChangePassword.m */; };
 		F08948E820108660007ECE74 /* UPSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F08948E720108660007ECE74 /* UPSTextField.m */; };
@@ -69,6 +70,8 @@
 		F070573E201572D200AF2064 /* UPSShowUPSDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPSShowUPSDetailModel.m; sourceTree = "<group>"; };
 		F070574020158B6200AF2064 /* UPSAboutUsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPSAboutUsVC.h; sourceTree = "<group>"; };
 		F070574120158B6200AF2064 /* UPSAboutUsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPSAboutUsVC.m; sourceTree = "<group>"; };
+		F070574320158FC000AF2064 /* UPSHistoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPSHistoryModel.h; sourceTree = "<group>"; };
+		F070574420158FC000AF2064 /* UPSHistoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPSHistoryModel.m; sourceTree = "<group>"; };
 		F086B47B201046AD00EABD5D /* UPSRememberBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPSRememberBtn.h; sourceTree = "<group>"; };
 		F086B47C201046AD00EABD5D /* UPSRememberBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPSRememberBtn.m; sourceTree = "<group>"; };
 		F08948E320108500007ECE74 /* UPSChangePassword.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPSChangePassword.h; sourceTree = "<group>"; };
@@ -150,6 +153,8 @@
 				F012EF29200F1FF0002296A3 /* UPSCompanyDetailModel.m */,
 				F070573D201572D200AF2064 /* UPSShowUPSDetailModel.h */,
 				F070573E201572D200AF2064 /* UPSShowUPSDetailModel.m */,
+				F070574320158FC000AF2064 /* UPSHistoryModel.h */,
+				F070574420158FC000AF2064 /* UPSHistoryModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -498,6 +503,7 @@
 				F0213E042007169000B5F64E /* UPSMainVC.m in Sources */,
 				F0F0459D20073DBA00D36029 /* UPSLoginVC.m in Sources */,
 				F012EF27200F07B2002296A3 /* UPSToken.m in Sources */,
+				F070574520158FC000AF2064 /* UPSHistoryModel.m in Sources */,
 				F0213DE5200713A300B5F64E /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

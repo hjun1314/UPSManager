@@ -10,11 +10,5 @@
 
 @interface UPSChangePasswordVC : UIViewController
 
-/////  创建修改密码控制器(是否需要核对原密码)
-/////
-/////  @param needOrignalPW 是否需要核对原密码
-//+ (instancetype)showChangePWVeiwControllerWithOrignalPW:(BOOL)needOrignalPW;
-//
-//+ (instancetype)showChangePWVeiwControllerWithOrignalPW:(BOOL)needOrignalPW isComeForDoc:(BOOL)comForDoc;
 
 @end

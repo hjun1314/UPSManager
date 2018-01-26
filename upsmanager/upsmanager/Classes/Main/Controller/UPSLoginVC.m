@@ -23,18 +23,23 @@
     [super viewDidLoad];
     UPSLoginView *loginView = [[UPSLoginView alloc]initWithFrame:CGRectMake(0, SafeAreaTopHeight, kScreenW, kScreenH - SafeAreaTopHeight)];
     self.loginView = loginView;
-    self.loginView.backgroundColor = UICOLOR_RGB(110, 188, 230, 0.6);
+//    self.loginView.backgroundColor = UICOLOR_RGB(55.0, 157.0, 246.0, 1);
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, SafeAreaTopHeight, kScreenW, kScreenH - SafeAreaTopHeight)];
+    [self.view addSubview:imageView];
+    imageView.image = [UIImage imageNamed:@"Banner_1"];
     [self.view addSubview:loginView];
-    self.view.backgroundColor = [UIColor whiteColor];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(clickLoginViewSureBtn) name:@"didClickSureBtn" object:nil];
     self.navigationItem.title = @"账号登录";
     
 }
 - (void)clickLoginViewSureBtn{
-    if (self.loginView.userTextField.text.length == 0 || self.loginView.passwordTextField.text.length == 0) {
-//        self.loginView.loginButton.enabled = NO;
+    if ([self.loginView.userTextField.text  isEqual: @""] || [self.loginView.passwordTextField.text  isEqual: @""]) {
+        self.loginView.loginButton.enabled = NO;
+        return;
     }else {
+        self.loginView.loginButton.enabled = YES;
         [self loadLoginData];
+
     }
 
     

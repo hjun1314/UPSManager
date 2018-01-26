@@ -13,6 +13,8 @@
 #import "UPSLoginCompanyModel.h"
 #import "UPSCompanyDetailModel.h"
 #import "UPSPersonalVC.h"
+#import "UPSShowUPSDetailModel.h"
+#import "UPSCompanyInfoVC.h"
 @interface UPSMainVC ()<MAMapViewDelegate,UPSCustormAnnotationViewDelegate>
 @property (nonatomic,strong)MAMapView *mapView;
 
@@ -30,6 +32,18 @@
     [self setNav];
     [self addMapView];
     [self setupBtn];
+    ///http://192.168.1.147:12345/ups-manager/getAllCompany
+    ///获取所有公司
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"token"] = [UPSTool getToken];
+    params[@"username"] = [UPSTool getUserName];
+    [[UPSHttpNetWorkTool sharedApi]POST:@"getAllCompany" baseURL:API_BaseURL params:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"全国公司分布%@",responseObject);
+    } fail:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+    
+    
 }
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -79,32 +93,28 @@
 }
 - (void)clickEquipmentBtn{
     ///http://192.168.1.147:12345/ups-manager/companyDetails
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-//    UPSLoginCompanyModel *model = [UPSLoginCompanyModel sharedUPSLoginCompanyModel];
-    params[@"token"] = [UPSTool getToken];
-    params[@"username"] = [UPSTool getUserName];
-    params[@"companyId"] = @(1);
-
-    
-    [[UPSHttpNetWorkTool sharedApi]POST:@"companyDetails" baseURL:API_BaseURL params:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"公司详细内容成功%@",responseObject);
-        NSMutableArray *dataM = responseObject[@"data"];
-        NSMutableArray *tempArr = [NSMutableArray array];
-        for (NSDictionary *dict in dataM) {
-            UPSCompanyDetailModel *model = [UPSCompanyDetailModel mj_objectWithKeyValues:dict];
-            [tempArr addObject:model];
-        }
-    } fail:^(NSURLSessionDataTask *task, NSError *error) {
-
-    }];
-    
+    UPSCompanyInfoVC *infoVC = [[UPSCompanyInfoVC alloc]init];
+    [self.navigationController pushViewController:infoVC animated:YES];
     
 }
 - (void)clcikPersonalBtn{
     UPSPersonalVC *person = [[UPSPersonalVC alloc]init];
     [self.navigationController pushViewController:person animated:YES];
-    ///http://192.168.1.147:12345/ups-manager/companyDetails
-   
+   ///http://192.168.1.147:12345/ups-manager/upsBaseParameter
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+
+    params[@"token"] = [UPSTool getToken];
+    params[@"username"] = [UPSTool getUserName];
+    params[@"upsId"] = @(1);
+    [[UPSHttpNetWorkTool sharedApi]POST:@"upsBaseParameter" baseURL:API_BaseURL params:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary *dictM = responseObject[@"data"];
+        NSLog(@"显示ups基础信息成功%@",responseObject);
+        NSMutableArray *tempArr = [NSMutableArray array];
+        UPSShowUPSDetailModel *model = [UPSShowUPSDetailModel mj_objectWithKeyValues:dictM];
+        [tempArr addObject:model];
+    } fail:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
 }
 #pragma mark- MAMapViewDelegate
 - (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation

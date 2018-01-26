@@ -22,18 +22,7 @@
 
 @implementation UPSChangePasswordVC
 
-//+ (instancetype)showChangePWVeiwControllerWithOrignalPW:(BOOL)needOrignalPW{
-//    UPSChangePasswordVC *controller = [UPSChangePasswordVC new];
-//    controller.needOrignalPW = needOrignalPW;
-//    return controller;
-//}
-//
-//+ (instancetype)showChangePWVeiwControllerWithOrignalPW:(BOOL)needOrignalPW isComeForDoc:(BOOL)comForDoc{
-//    UPSChangePasswordVC *controller = [UPSChangePasswordVC new];
-//    controller.needOrignalPW = needOrignalPW;
-//    controller.comForDoc = comForDoc;
-//    return controller;
-//}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

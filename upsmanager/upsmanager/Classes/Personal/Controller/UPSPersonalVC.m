@@ -13,8 +13,7 @@
 #import "UPSChangePasswordVC.h"
 #import "AppDelegate.h"
 #import "UPSAboutUsVC.h"
-@interface UPSPersonalVC ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIApplicationDelegate>
-//@property (nonatomic,strong)UITextField *userName;
+@interface UPSPersonalVC ()<UITableViewDelegate,UITableViewDataSource,UIApplicationDelegate>
 
 @end
 
@@ -75,7 +74,16 @@
         
         UPSAboutUsVC *about = [[UPSAboutUsVC alloc]init];
         [self.navigationController pushViewController:about animated:YES];
-        
+        ///http://192.168.1.147:12345/ups-manager/upsSituation
+//        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+//        params[@"token"] = [UPSTool getToken];
+//        params[@"username"] = [UPSTool getUserName];
+//        params[@"upsId"] = @"1";
+//        [[UPSHttpNetWorkTool sharedApi]POST:@"upsSituation" baseURL:API_BaseURL params:params success:^(NSURLSessionDataTask *task, id responseObject) {
+//            NSLog(@"获得历史数据成功%@",responseObject);
+//        } fail:^(NSURLSessionDataTask *task, NSError *error) {
+//
+//        }];
         
     }else{
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"是否注销" message:@"确定注销?" preferredStyle:UIAlertControllerStyleAlert];
@@ -108,20 +116,7 @@
     }
     
 }
-//- (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion{
-//    
-//}
-#pragma mark - textfieldDelegate
 
-//- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-//    NSCharacterSet *cs;
-//    cs = [[NSCharacterSet characterSetWithCharactersInString:NUMBERS]invertedSet];
-//     NSString *toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-//    if (self.userName == textField) {
-//        if (toBeString.length < 5) {
-//        }
-//    }
-//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
