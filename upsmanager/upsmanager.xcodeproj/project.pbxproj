@@ -12,6 +12,9 @@
 		F012EF27200F07B2002296A3 /* UPSToken.m in Sources */ = {isa = PBXBuildFile; fileRef = F012EF26200F07B2002296A3 /* UPSToken.m */; };
 		F012EF2A200F1FF0002296A3 /* UPSCompanyDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F012EF29200F1FF0002296A3 /* UPSCompanyDetailModel.m */; };
 		F012EF2D200F3CFF002296A3 /* UPSPersonalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F012EF2C200F3CFF002296A3 /* UPSPersonalVC.m */; };
+		F019CAF0201EB77D00D595F6 /* UIView+GKExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = F019CAEC201EB77D00D595F6 /* UIView+GKExtension.m */; };
+		F019CAF1201EB77D00D595F6 /* GKCover.m in Sources */ = {isa = PBXBuildFile; fileRef = F019CAEF201EB77D00D595F6 /* GKCover.m */; };
+		F019CAF4201EB7CA00D595F6 /* UPSBaseInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F019CAF2201EB7CA00D595F6 /* UPSBaseInfoView.m */; };
 		F0213DE5200713A300B5F64E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F0213DE4200713A300B5F64E /* AppDelegate.m */; };
 		F0213DED200713A300B5F64E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0213DEC200713A300B5F64E /* Assets.xcassets */; };
 		F0213DF0200713A300B5F64E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0213DEE200713A300B5F64E /* LaunchScreen.storyboard */; };
@@ -49,6 +52,13 @@
 		F012EF29200F1FF0002296A3 /* UPSCompanyDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPSCompanyDetailModel.m; sourceTree = "<group>"; };
 		F012EF2B200F3CFF002296A3 /* UPSPersonalVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPSPersonalVC.h; sourceTree = "<group>"; };
 		F012EF2C200F3CFF002296A3 /* UPSPersonalVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPSPersonalVC.m; sourceTree = "<group>"; };
+		F019CAEA201EB77D00D595F6 /* GKCover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCover.h; sourceTree = "<group>"; };
+		F019CAEC201EB77D00D595F6 /* UIView+GKExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GKExtension.m"; sourceTree = "<group>"; };
+		F019CAED201EB77D00D595F6 /* UIView+GKExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GKExtension.h"; sourceTree = "<group>"; };
+		F019CAEE201EB77D00D595F6 /* GKCoverEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCoverEnum.h; sourceTree = "<group>"; };
+		F019CAEF201EB77D00D595F6 /* GKCover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKCover.m; sourceTree = "<group>"; };
+		F019CAF2201EB7CA00D595F6 /* UPSBaseInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPSBaseInfoView.m; sourceTree = "<group>"; };
+		F019CAF3201EB7CA00D595F6 /* UPSBaseInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPSBaseInfoView.h; sourceTree = "<group>"; };
 		F0213DE0200713A300B5F64E /* upsmanager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = upsmanager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0213DE3200713A300B5F64E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F0213DE4200713A300B5F64E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -140,6 +150,7 @@
 		F012EF18200F0354002296A3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F019CAE9201EB77D00D595F6 /* GKCover */,
 				F012EF22200F03FD002296A3 /* UPSCompanyInfoVC.h */,
 				F012EF23200F03FD002296A3 /* UPSCompanyInfoVC.m */,
 			);
@@ -162,6 +173,8 @@
 		F012EF1A200F0354002296A3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F019CAF3201EB7CA00D595F6 /* UPSBaseInfoView.h */,
+				F019CAF2201EB7CA00D595F6 /* UPSBaseInfoView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -205,6 +218,26 @@
 				F08948E720108660007ECE74 /* UPSTextField.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F019CAE9201EB77D00D595F6 /* GKCover */ = {
+			isa = PBXGroup;
+			children = (
+				F019CAEA201EB77D00D595F6 /* GKCover.h */,
+				F019CAEB201EB77D00D595F6 /* Category */,
+				F019CAEE201EB77D00D595F6 /* GKCoverEnum.h */,
+				F019CAEF201EB77D00D595F6 /* GKCover.m */,
+			);
+			path = GKCover;
+			sourceTree = "<group>";
+		};
+		F019CAEB201EB77D00D595F6 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				F019CAEC201EB77D00D595F6 /* UIView+GKExtension.m */,
+				F019CAED201EB77D00D595F6 /* UIView+GKExtension.h */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		F0213DD7200713A300B5F64E = {
@@ -498,12 +531,15 @@
 				F070573F201572D200AF2064 /* UPSShowUPSDetailModel.m in Sources */,
 				F0A6A05B200DD4FE0072F50F /* UPSCustomCalloutView.m in Sources */,
 				F0F045992007364E00D36029 /* UPSLoginView.m in Sources */,
+				F019CAF4201EB7CA00D595F6 /* UPSBaseInfoView.m in Sources */,
 				F012EF24200F03FD002296A3 /* UPSCompanyInfoVC.m in Sources */,
 				F012EF2D200F3CFF002296A3 /* UPSPersonalVC.m in Sources */,
 				F0213E042007169000B5F64E /* UPSMainVC.m in Sources */,
 				F0F0459D20073DBA00D36029 /* UPSLoginVC.m in Sources */,
 				F012EF27200F07B2002296A3 /* UPSToken.m in Sources */,
 				F070574520158FC000AF2064 /* UPSHistoryModel.m in Sources */,
+				F019CAF1201EB77D00D595F6 /* GKCover.m in Sources */,
+				F019CAF0201EB77D00D595F6 /* UIView+GKExtension.m in Sources */,
 				F0213DE5200713A300B5F64E /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

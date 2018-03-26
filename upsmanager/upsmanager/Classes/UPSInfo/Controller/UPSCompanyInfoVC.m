@@ -9,6 +9,8 @@
 #import "UPSCompanyInfoVC.h"
 #import "UPSHeader.h"
 #import "UPSCompanyDetailModel.h"
+#import "UPSBaseInfoView.h"
+#import "GKCover.h"
 @interface UPSCompanyInfoVC ()
 
 @end
@@ -17,14 +19,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  ///http://192.168.1.147:12345/ups-manager/upsSituation
+    [self setNav];
+}
+- (void)setNav{
+   
+    self.navigationItem.title = @"设备详情";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"基础信息" style:UIBarButtonItemStylePlain target:self action:@selector(clickRightItem)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(clickBack)];
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, SafeAreaTopHeight, kScreenW, 150)];
     imageView.image = [UIImage imageNamed:@"er"];
     [self.view addSubview:imageView];
-    [self loadData];
     self.view.backgroundColor = [UIColor whiteColor];
 }
-- (void)loadData{
+- (void)clickBack{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+- (void)clickRightItem{
+    UPSBaseInfoView *info = [[UPSBaseInfoView alloc]init];
+    info.gk_size = CGSizeMake(kScreenW *0.7, 215);
+    
+    [GKCover translucentWindowCenterCoverContent:info animated:YES];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"token"] = [UPSTool getToken];
     params[@"username"] = [UPSTool getUserName];
@@ -42,6 +56,9 @@
     } fail:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];
+}
+- (void)loadData{
+   
     
 }
 - (void)didReceiveMemoryWarning {

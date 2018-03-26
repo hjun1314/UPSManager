@@ -50,7 +50,7 @@ blue:((CGFloat)(rgbValue & 0xFF)) / 255.0 alpha:1.0]
 #import <UserNotifications/UserNotifications.h>
 #import "JPUSHService.h"
 
-#define API_BaseURL @"http://192.168.1.147:12345/ups-manager/"
+#define API_BaseURL @"http://192.168.1.147:80/ups-manager/"
 
 #define Singleton_h(name)  +(instancetype)shared##name;
 #if __has_feature(objc_arc) // arc
